@@ -57,7 +57,9 @@ class HomeScreenState extends State<HomeScreen> {
 
               return Card(
                 child: ListTile(
-                  leading: Image.network(movie.imageUrl, width: 50),
+                  leading: movie.imageUrl.isNotEmpty
+                      ? Image.network(movie.imageUrl, width: 50, height: 50, fit: BoxFit.cover)
+                      : const Icon(Icons.movie, size: 50),
                   title: Text(movie.title),
                   subtitle: Text("⭐ ${movie.rating}"),
 

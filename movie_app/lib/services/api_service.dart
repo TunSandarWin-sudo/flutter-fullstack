@@ -13,7 +13,7 @@ class ApiService {
   print("BODY: ${response.body}");
 
   if (response.statusCode == 200) {
-    final data = json.decode(response.body);
+    final data = jsonDecode(response.body);
     return data.map<Movie>((json) => Movie.fromJson(json)).toList();
   } else {
     throw Exception("Failed to load movies");
